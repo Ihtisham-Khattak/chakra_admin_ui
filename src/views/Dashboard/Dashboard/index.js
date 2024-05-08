@@ -1,5 +1,5 @@
 // Chakra imports
-import { Flex, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
 
 // Custom icons
 import {
@@ -14,6 +14,7 @@ import MiniStatistics from "./components/MiniStatistics";
 export default function Dashboard() {
   let iconBoxInside = useColorModeValue("white", "white");
   return (
+    <Box bg="gray.200" mt={{ base: "40px", md: "65px" }} h="80vh" borderRadius="10">
     <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
       <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
         <MiniStatistics
@@ -42,5 +43,6 @@ export default function Dashboard() {
         />
       </SimpleGrid>
     </Flex>
+    </Box>
   );
 }
