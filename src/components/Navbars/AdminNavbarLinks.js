@@ -20,11 +20,9 @@ import {
 // Custom Icons
 import { ProfileIcon, SettingsIcon, BellIcons } from "components/Icons/Icons";
 // Custom Components
-import SidebarResponsive from "components/Sidebar/SidebarResponsive";
 import PropTypes from "prop-types";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import routes from "routes.js";
 
 export default function HeaderLinks(props) {
   const { variant, children, fixed, secondary, onOpen, ...rest } = props;

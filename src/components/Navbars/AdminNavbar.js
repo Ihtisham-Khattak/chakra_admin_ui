@@ -69,7 +69,9 @@ export default function AdminNavbar(props) {
 
   return (
     <Flex
-      position={navbarPosition}
+      // position={navbarPosition}
+      position="absolute"
+      top="0"
       boxShadow={navbarShadow}
       bg={navbarBg}
       borderColor={navbarBorder}
@@ -82,17 +84,16 @@ export default function AdminNavbar(props) {
       transition-property="box-shadow, background-color, filter, border"
       transitionTimingFunction="linear, linear, linear, linear"
       alignItems={{ xl: "center" }}
-      borderRadius="16px"
+      borderRadius="1px"
+      border="gray.100"
       display="flex"
       minH="75px"
-      // minW="80%"
       justifyContent={{ xl: "center" }}
       lineHeight="25.6px"
       mx="auto"
       mt={secondaryMargin}
       pb="8px"
-      left={document.documentElement.dir === "rtl" ? "30px" : ""}
-      right={document.documentElement.dir === "rtl" ? "" : "30px"}
+      left={{ sm: "0px", md: "17rem" }}
       px={{
         sm: paddingX,
         md: "30px",
@@ -101,8 +102,7 @@ export default function AdminNavbar(props) {
         xl: "12px",
       }}
       pt="8px"
-      top="18px"
-      w={{ sm: "calc(100vw - 30px)", xl: "calc(100vw - 75px - 275px)" }}
+      minW={{ sm: "calc(150vw - 30px)", xl: "calc(106vw - 75px - 275px)" }}
     >
       <Flex
         w="100%"
