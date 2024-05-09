@@ -1,14 +1,12 @@
 // import
-import Dashboard from "views/Dashboard/Dashboard";
-import Tables from "views/Dashboard/Tables";
-import Profile from "views/Dashboard/Profile";
+import Dashboard from "views/Dashboard";
+import Tables from "views/Technicins";
 import SignIn from "views/Auth/SignIn.js";
 import SignUp from "views/Auth/SignUp.js";
 
 import {
   HomeIcon,
   StatsIcon,
-  PersonIcon,
   DocumentIcon,
   RocketIcon,
 } from "components/Icons/Icons";
@@ -23,38 +21,13 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/tables",
+    path: "/technicins",
     name: "Technician",
     rtlName: "لوحة القيادة",
     icon: <StatsIcon color="inherit" />,
     component: Tables,
     layout: "/admin",
   },
-  // {
-  //   path: "/billing",
-  //   name: "Billing",
-  //   rtlName: "لوحة القيادة",
-  //   icon: <CreditIcon color="inherit" />,
-  //   component: Billing,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/rtl-support-page",
-  //   name: "RTL",
-  //   rtlName: "آرتيإل",
-  //   icon: <SupportIcon color="inherit" />,
-  //   component: RTLPage,
-  //   layout: "/rtl",
-  // },
-  // {
-  //   path: "/profile",
-  //   name: "Profile",
-  //   rtlName: "لوحة القيادة",
-  //   icon: <PersonIcon color="inherit" />,
-  //   secondaryNavbar: true,
-  //   component: Profile,
-  //   layout: "/admin",
-  // },
   {
     path: "/signin",
     name: "Setting",

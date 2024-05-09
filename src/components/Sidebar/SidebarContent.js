@@ -14,7 +14,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 // this function creates the links and collapses that appear in the sidebar (left menu)
 
-const SidebarContent = ({routes }) => {
+const SidebarContent = ({ routes }) => {
   // to check for active links and opened collapses
   let location = useLocation();
   // this is for the rest of the collapses
@@ -26,8 +26,8 @@ const SidebarContent = ({routes }) => {
   };
   const createLinks = (routes) => {
     // Chakra Color Mode
-    const activeBg = useColorModeValue("gray.100", "gray.700");
-    const inactiveBg = useColorModeValue("white", "gray.700");
+    const activeBg = useColorModeValue("gray.100", "gray.900");
+    const inactiveBg = useColorModeValue("white", "gray");
     const activeColor = useColorModeValue("gray.700", "white");
     const inactiveColor = useColorModeValue("gray.400", "gray.400");
 
@@ -40,7 +40,6 @@ const SidebarContent = ({routes }) => {
         st[prop["state"]] = !state[prop.state];
         return (
           <div key={prop.name}>
-            
             <Text
               color={activeColor}
               fontWeight="bold"
@@ -144,15 +143,15 @@ const SidebarContent = ({routes }) => {
               }}
             >
               <Flex>
-              <IconBox
-                    bg={inactiveBg}
-                    color="teal.300"
-                    h="30px"
-                    w="30px"
-                    me="12px"
-                  >
-                    {prop.icon}
-                  </IconBox>
+                <IconBox
+                  bg={inactiveBg}
+                  color="teal.300"
+                  h="30px"
+                  w="30px"
+                  me="12px"
+                >
+                  {prop.icon}
+                </IconBox>
                 {/* {typeof prop.icon === "string" ? (
                   <Icon>{prop.icon}</Icon>
                 ) : (
