@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // Chakra imports
 import {
   Box,
@@ -9,13 +9,16 @@ import {
   Heading,
   Input,
   Link,
-  Switch,
   Text,
   useColorModeValue,
   InputGroup,
   InputLeftElement,
   Img,
   InputRightElement,
+  Tabs,
+  TabList,
+  Tab,
+  Spacer
 } from "@chakra-ui/react";
 // Assets
 import signInImage from "assets/img/signInImage.png";
@@ -26,11 +29,9 @@ import Vector from "assets/img/Vector.png";
 import { TBRLogo } from "components/Icons/Icons";
 
 function SignIn() {
+
   const titleColor = useColorModeValue("#667085");
   const textColor = useColorModeValue("#101828");
-  const isChecked = "false" || "true";
-
-  const [onSwitch, setOnSwitch] = useState(false);
 
   return (
     <Flex>
@@ -70,7 +71,7 @@ function SignIn() {
               Welcome Back
             </Heading>
             <Text
-              mb="36px"
+              mb="30px"
               ms="4px"
               color={textColor}
               fontWeight="bold"
@@ -79,31 +80,28 @@ function SignIn() {
             >
               Sign In now
             </Text>
-            <FormControl display="flex" alignItems="center">
-              <Switch
-                colorScheme="green"
-                isChecked="open"
-                h="50"
-                sx={{
-                  ".chakra-switch__track": {
-                    position: "relative",
-                  },
-                  ".chakra-switch__track::after": {
-                    w: "50%",
-                    h: "50%",
-                    content: isChecked ? '"Admin"' : '"OFF"',
-                    color: isChecked ? "white" : "black",
-                    display: "block",
-                    position: "absolute",
-                    transform: "translate(-50%,-50%)",
-                    top: "50%",
-                    left: isChecked ? "28%" : "70%",
-                    fontWeight: "bold",
-                    fontSize: "2xs",
-                  },
-                }}
-              />
+
+            {/* Switch between admin and technician */}
+            <FormControl display="flex" justifyContent="center">
+              <Tabs
+                bg="#eaecf0"
+                rounded="100px"
+                variant="soft-rounded"
+                colorScheme="blue"
+                foc
+                isFitted
+                
+                size="lg"
+              >
+                <TabList>
+                  <Tab w="10%" boxShadow='none'>Admin</Tab>
+                  <Tab w="10%" boxShadow='none' outline="none">Technician</Tab>
+                </TabList>
+              </Tabs>
             </FormControl>
+            <Spacer />
+
+            {/* Form Start */}
             <FormControl>
               <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                 Email
@@ -129,7 +127,7 @@ function SignIn() {
               <InputGroup>
                 <InputLeftElement
                   pointerEvents="none"
-                  children={<Img src={keyMinimalistic}  alt="keyMinimalistic" />}
+                  children={<Img src={keyMinimalistic} alt="keyMinimalistic" />}
                 />
 
                 <Input
@@ -141,9 +139,8 @@ function SignIn() {
                   size="lg"
                 />
                 <InputRightElement
-        
                   pointerEvents="none"
-                  children={<Img src={Vector} alt="key" /> }
+                  children={<Img src={Vector} alt="key" />}
                 />
               </InputGroup>
 

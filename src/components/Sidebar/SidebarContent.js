@@ -26,10 +26,10 @@ const SidebarContent = ({ routes }) => {
   };
   const createLinks = (routes) => {
     // Chakra Color Mode
-    const activeBg = useColorModeValue("gray.100", "gray.900");
-    const inactiveBg = useColorModeValue("white", "gray");
-    const activeColor = useColorModeValue("gray.700", "white");
-    const inactiveColor = useColorModeValue("gray.400", "gray.400");
+    const activeBg = useColorModeValue("gray.100");
+    const inactiveBg = useColorModeValue("white");
+    const activeColor = useColorModeValue("gray.700");
+    const inactiveColor = useColorModeValue("gray.400");
 
     return routes.map((prop, key) => {
       if (prop.redirect) {
@@ -96,13 +96,7 @@ const SidebarContent = ({ routes }) => {
                 {typeof prop.icon === "string" ? (
                   <Icon>{prop.icon}</Icon>
                 ) : (
-                  <IconBox
-                    bg="teal.300"
-                    color="white"
-                    h="30px"
-                    w="30px"
-                    me="12px"
-                  >
+                  <IconBox color="#1D2939" h="30px" w="30px" me="12px">
                     {prop.icon}
                   </IconBox>
                 )}
@@ -142,21 +136,18 @@ const SidebarContent = ({ routes }) => {
                 boxShadow: "none",
               }}
             >
+              {/* Icons Color */}
               <Flex>
                 <IconBox
                   bg={inactiveBg}
-                  color="teal.300"
+                  color="gray.300"
                   h="30px"
                   w="30px"
                   me="12px"
                 >
                   {prop.icon}
                 </IconBox>
-                {/* {typeof prop.icon === "string" ? (
-                  <Icon>{prop.icon}</Icon>
-                ) : (
-                  
-                )} */}
+              
                 <Text color={inactiveColor} my="auto" fontSize="sm">
                   {document.documentElement.dir === "rtl"
                     ? prop.rtlName
