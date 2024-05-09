@@ -1,67 +1,55 @@
 // Chakra imports
-import { Box, Flex, Stat, StatLabel, useColorModeValue } from "@chakra-ui/react";
-
-// Custom icons
-import {
-  CartIcon,
-  DocumentIcon,
-  GlobeIcon,
-  WalletIcon,
-} from "components/Icons/Icons.js";
+import { Grid, Flex, Box, Img, Stack, Text } from "@chakra-ui/react";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-import IconBox from "components/Icons/IconBox";
 import React from "react";
-import MiniStatistics from "./components/MiniStatistics";
+import { dashboardContent } from "assets/json/DashboardCards";
+import CardHeader from "components/Card/CardHeader";
 
 export default function Dashboard() {
-  let iconBoxInside = useColorModeValue("white");
-
   return (
     <Box
       bg="white"
       mt={{ base: "40px", md: "65px" }}
-      p="10px"
+      p="15px"
       h="80vh"
       borderRadius="15px"
     >
-      <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
-        <Card minH="83px">
-          <CardBody>
-            <Flex flexDirection="row" align="center" justify="center" w="100%">
-              <Stat me="auto">
-                <StatLabel
-                  fontSize="sm"
-                  color="gray.400"
-                  fontWeight="bold"
-                  pb=".1rem"
-                >
-                  {title}
-                </StatLabel>
-                <Flex>
-                  <StatNumber fontSize="lg" color={textColor}>
-                    {amount}
-                  </StatNumber>
-                  <StatHelpText
-                    alignSelf="flex-end"
-                    justifySelf="flex-end"
-                    m="0px"
-                    color={percentage > 0 ? "green.400" : "red.400"}
-                    fontWeight="bold"
-                    ps="3px"
-                    fontSize="md"
-                  >
-                    {percentage > 0 ? `+${percentage}%` : `${percentage}%`}
-                  </StatHelpText>
-                </Flex>
-              </Stat>
-              <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
-                {icon}
-              </IconBox>
-            </Flex>
-          </CardBody>
-        </Card>
-      </Flex>
+      <Grid
+        templateColumns={{ base: "1fr", md: "repeat(4, 1fr)" }}
+        gap={{ base: "20px", md: "5px" }}
+      >
+        {dashboardContent.map((item, index) => (
+          <Card
+            w="100%"
+            h="100%"
+            key={index}
+            m={{ base: "10px", md: "10px", lg: "0" }}
+            boxShadow="md"
+          >
+            <CardHeader
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Flex>
+                <Img src={item.imgUrl} w="52px" h="52px" />
+              </Flex>
+            </CardHeader>
+            <CardBody
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Stack mt="6" spacing="3">
+                <Text size="md">{item.imgName}</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+        ))}
+      </Grid>
     </Box>
   );
 }
