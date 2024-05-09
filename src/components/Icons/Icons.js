@@ -66,6 +66,8 @@ export const ClockIcon = createIcon({
     </g>
   ),
 });
+
+// TBR Logo
 export const TBRLogo = createIcon({
   displayName: "TBR",
   viewBox: "0 0 122 44",
@@ -93,18 +95,8 @@ export const TBRLogo = createIcon({
       />
     </g>
   ),
-
-  //   <chakra.svg
-  //   height="50px"
-  //   width="50px"
-  //   viewBox="0 0 100 100"
-  //   fill="none"
-  //   xmlns="http://www.w3.org/2000/svg"
-  //   color={fill}
-  //   {...props}
-  // >
-  // </chakra.svg>
 });
+
 
 export const CreditIcon = createIcon({
   displayName: "CreditIcon",
@@ -361,7 +353,6 @@ export const PersonIcon = createIcon({
   ),
 });
 
-
 //>========== Navbar Icons End =============<
 export const ProfileIcon = createIcon({
   displayName: "ProfileIcon",
@@ -376,7 +367,6 @@ export const ProfileIcon = createIcon({
     </g>
   ),
 });
-
 
 export const BellIcons = createIcon({
   displayName: "BellIcon",
@@ -396,7 +386,6 @@ export const BellIcons = createIcon({
     </g>
   ),
 });
-
 
 export const QuestionIcon = createIcon({
   displayName: "QuestionMark",

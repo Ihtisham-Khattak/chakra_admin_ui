@@ -1,0 +1,9 @@
+export const dashboardContent = [
+    { "id": 0, "imgUrl": "assets/img/Button_01.png" },
+    { "id": 1, "imgUrl": "assets/img/Button_02.png" },
+    { "id": 2, "imgUrl": "assets/img/Button_03.png" },
+    { "id": 3, "imgUrl": "assets/img/Button_04.png" },
+    { "id": 4, "imgUrl": "assets/img/Button_05.png" },
+    { "id": 5, "imgUrl": "assets/img/Button_06.png" }
+];
+

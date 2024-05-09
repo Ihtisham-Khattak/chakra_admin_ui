@@ -1,5 +1,5 @@
 // Chakra imports
-import { Flex, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Stat, StatLabel, useColorModeValue } from "@chakra-ui/react";
 
 // Custom icons
 import {
@@ -8,39 +8,60 @@ import {
   GlobeIcon,
   WalletIcon,
 } from "components/Icons/Icons.js";
+import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
+import IconBox from "components/Icons/IconBox";
 import React from "react";
 import MiniStatistics from "./components/MiniStatistics";
 
 export default function Dashboard() {
-  let iconBoxInside = useColorModeValue("white", "white");
+  let iconBoxInside = useColorModeValue("white");
+
   return (
-    <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
-      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
-        <MiniStatistics
-          title={"Today's Moneys"}
-          amount={"$53,000"}
-          percentage={55}
-          icon={<WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Today's Users"}
-          amount={"2,300"}
-          percentage={5}
-          icon={<GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"New Clients"}
-          amount={"+3,020"}
-          percentage={-14}
-          icon={<DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Total Sales"}
-          amount={"$173,000"}
-          percentage={8}
-          icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-      </SimpleGrid>
-    </Flex>
+    <Box
+      bg="white"
+      mt={{ base: "40px", md: "65px" }}
+      p="10px"
+      h="80vh"
+      borderRadius="15px"
+    >
+      <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
+        <Card minH="83px">
+          <CardBody>
+            <Flex flexDirection="row" align="center" justify="center" w="100%">
+              <Stat me="auto">
+                <StatLabel
+                  fontSize="sm"
+                  color="gray.400"
+                  fontWeight="bold"
+                  pb=".1rem"
+                >
+                  {title}
+                </StatLabel>
+                <Flex>
+                  <StatNumber fontSize="lg" color={textColor}>
+                    {amount}
+                  </StatNumber>
+                  <StatHelpText
+                    alignSelf="flex-end"
+                    justifySelf="flex-end"
+                    m="0px"
+                    color={percentage > 0 ? "green.400" : "red.400"}
+                    fontWeight="bold"
+                    ps="3px"
+                    fontSize="md"
+                  >
+                    {percentage > 0 ? `+${percentage}%` : `${percentage}%`}
+                  </StatHelpText>
+                </Flex>
+              </Stat>
+              <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+                {icon}
+              </IconBox>
+            </Flex>
+          </CardBody>
+        </Card>
+      </Flex>
+    </Box>
   );
 }
