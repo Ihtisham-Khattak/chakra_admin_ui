@@ -1,5 +1,5 @@
 // Chakra imports
-import { ChakraProvider, Portal, useDisclosure } from '@chakra-ui/react';
+import { ChakraProvider, Portal, useDisclosure,Flex } from '@chakra-ui/react';
 import Footer from 'components/Footer/Footer.js';
 // Layout components
 import AdminNavbar from 'components/Navbars/AdminNavbar.js';
@@ -124,6 +124,7 @@ export default function Dashboard(props) {
 				</Portal>
 			
 			</MainPanel>
+    
 		</ChakraProvider>
 	);
 }
